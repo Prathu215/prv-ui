@@ -1,6 +1,6 @@
 <div class="astroid-container">
-  <app-header></app-header>
-  <div class="astroid-content has-sidebar sidebar-dir-left">
+  <app-header [isProfileVisible]="isProfileOpen"></app-header>
+  <div class="astroid-content has-sidebar sidebar-dir-left" [ngStyle]="{'padding-left': isProfileOpen ? '400px' : '90px' }">
     <!-- astroid layout -->
     <div class="astroid-layout astroid-layout-wide">
         <!-- astroid wrapper -->

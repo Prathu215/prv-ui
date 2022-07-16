@@ -11132,14 +11132,16 @@ a.text-dark:focus {
 /*
  * Body Wrapper
  */
-html,
-body,
-.astroid-container,
-.astroid-content,
-.astroid-layout,
-.astroid-wrapper {
-    min-height: 100vh;
-}
+
+
+    html,
+    body,
+    .astroid-container,
+    .astroid-content,
+    .astroid-layout,
+    .astroid-wrapper {
+    /*min-height: 100vh;*/
+    }
 
 a {
     transition: color 400ms, background-color 400ms;

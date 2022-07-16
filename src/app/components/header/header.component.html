@@ -1,5 +1,5 @@
 <div class="astroid-container mobilemenu-slide" [ngClass]="{'astroid-mobilemenu-open': isMenuOpen}">
-    <header id="astroid-header" class="astroid-header astroid-sidebar-header sidebar-dir-left h-100 has-sidebar">
+    <header id="astroid-header" class="astroid-header astroid-sidebar-header sidebar-dir-left h-100 has-sidebar" [ngStyle]="{'width': isProfileVisible ? '400px' : '90px' }">
         <div class="astroid-sidebar-content h-100 mCustomScrollbar _mCS_1 mCS-autoHide"
             style="position: relative; overflow: visible;">
             <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_outside" style="max-height: none;"
@@ -9,7 +9,7 @@
                         <i class="fa"></i>
                     </div>
                     <div class="profiler-sidebar-container h-100">
-                        <div class="profiler-sidebar-content sidebar-content-left h-100">
+                        <div class="profiler-sidebar-content sidebar-content-left h-100" *ngIf="isProfileVisible">
                             <div class="astroid-sidebar-mobile-menu">
                                 <div class="header-mobilemenu-trigger burger-menu-button align-self-center"
                                     [ngClass]="{'active': isMenuOpen}" data-offcanvas="#astroid-mobilemenu"
