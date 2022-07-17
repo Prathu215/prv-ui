@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    GalleryComponent
+    GalleryComponent,
+    BannerComponent,
+    BlogComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
