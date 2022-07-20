@@ -1,5 +1,5 @@
-<i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-<header id="header">
+<i class="bi bi-list mobile-nav-toggle d-xl-none" (click)="openMenu()" [ngClass]="{'bi-x': isMenuOpen}"></i>
+<header id="header" [ngClass]="{'mobile-nav-active': isMenuOpen}">
     <div class="d-flex flex-column">
         <div class="profile"> <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light"><a [routerLink]="['/']" routerLinkActive="router-link-active" >Alex Smith</a></h1>

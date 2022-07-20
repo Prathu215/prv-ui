@@ -188,7 +188,7 @@ body {
   .mobile-nav-active {
     overflow: hidden;
   }
-  .mobile-nav-active #header {
+  .mobile-nav-active#header {
     left: 0;
   }
   
@@ -1169,6 +1169,17 @@ transition: all 500ms ease;
   .article-list .article:hover .readmore a:after {
       opacity: 0;
   }
+
+
+  .contact .php-email-form button[type=submit]:disabled {
+    background: #ccc;
+    border: 0;
+    padding: 10px 24px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+    cursor:not-allowed;
+}
 
  
   
