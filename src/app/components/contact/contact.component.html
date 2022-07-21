@@ -68,7 +68,11 @@
                   id="phoneNumber"
                   required=""
                   formControlName="phoneNumber"
+                  [ngClass]="{'is-invalid': form?.['phoneNumber']?.touched && form?.['phoneNumber']?.invalid}"
                 />
+                <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['phoneNumber']?.touched && form?.['phoneNumber']?.invalid">
+                    Please enter Phone number.
+                  </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="name">Your Email</label>
@@ -81,6 +85,9 @@
                   formControlName="email"
                   [ngClass]="{'is-invalid': form?.['email']?.touched && form?.['email']?.invalid}"
                 />
+                <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['email']?.touched && form?.['email']?.invalid">
+                    Please enter valid Email.
+                  </div>
               </div>
             </div>
             <div class="form-group">
@@ -92,7 +99,11 @@
                 id="subject"
                 required=""
                 formControlName="subject"
+                [ngClass]="{'is-invalid': form?.['subject']?.touched && form?.['subject']?.invalid}"
               />
+              <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['subject']?.touched && form?.['subject']?.invalid">
+                Please enter your subject.
+              </div>
             </div>
             <div class="form-group">
               <label for="name">Message</label
@@ -102,7 +113,11 @@
                 rows="10"
                 required=""
                 formControlName="message"
+                [ngClass]="{'is-invalid': form?.['message']?.touched && form?.['message']?.invalid}"
               ></textarea>
+              <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['message']?.touched && form?.['message']?.invalid">
+                Please enter your message.
+              </div>
             </div>
             <div class="my-3">
               <div class="loading">Loading</div>
