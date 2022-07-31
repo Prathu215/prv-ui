@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { HttpAppService } from "src/app/services/http.service";
 
 @Component({
   selector: "app-contact",
@@ -8,7 +9,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class ContactComponent implements OnInit {
   public contactModel: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+    public httpAppService: HttpAppService) {}
 
   ngOnInit(): void {
     this.contactModel = this.fb.group({
@@ -43,6 +45,12 @@ export class ContactComponent implements OnInit {
   onSubmit(form: FormGroup) {
     console.log('Valid?', form.valid); // true or false
     console.log(form.value);
+    const body = {"data":form.value}
+    this.httpAppService.contactMe(body).subscribe((response)=>{
+      console.log(response);
+    },(error)=>{
+      console.log(error);
+    })
   }
 
 }

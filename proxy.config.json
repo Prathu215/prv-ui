@@ -1,0 +1,7 @@
+{
+    "/api/contacts":{
+        "target":"http://localhost:1337/",
+        "secure": false,
+        "changeOrigin": true
+    }
+}
