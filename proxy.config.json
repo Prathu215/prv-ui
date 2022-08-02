@@ -1,5 +1,5 @@
 {
-    "/api/contacts":{
+    "/api":{
         "target":"http://localhost:1337/",
         "secure": false,
         "changeOrigin": true
