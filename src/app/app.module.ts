@@ -12,7 +12,8 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppInterceptor } from './services/app.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide : HTTP_INTERCEPTORS,
+    useClass : AppInterceptor,
+    multi : true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
