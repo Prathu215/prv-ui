@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HttpAppService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,15 @@ export class HeaderComponent implements OnInit {
 
   @Input() isProfileVisible:boolean = false;
   public isMenuOpen: boolean = false;
-  constructor() { }
+  public userInfo: any;
+  constructor( private httpAppService: HttpAppService) { 
+
+  }
 
   ngOnInit(): void {
+    this.httpAppService.getProfile().subscribe((response) =>{
+this.userInfo =response;
+    })
   }
 
   openMenu() {

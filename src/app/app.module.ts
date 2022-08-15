@@ -14,6 +14,7 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './services/app.interceptor';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AppInterceptor } from './services/app.interceptor';
     BannerComponent,
     BlogComponent,
     ContactComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,9 @@
     "predeploy": "ng build --prod --output-hashing none",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "comp": "ng g c components/spinner"
+
   },
   "private": true,
   "dependencies": {
