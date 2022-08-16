@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiHost: "https://prv-strapi.herokuapp.com"
+  /*apiHost: "https://prv-strapi.herokuapp.com"*/
+  apiHost:"http://localhost:1337"
 };
 
 /*

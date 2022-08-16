@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "comp": "ng g c components/spinner"
+    "comp": "ng g c components/events"
 
   },
   "private": true,

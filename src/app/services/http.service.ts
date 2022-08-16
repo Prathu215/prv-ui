@@ -40,4 +40,14 @@ export class HttpAppService {
     return this.apiCacheRequest(REST_URLS.getProfile);
   }
 
+  getEvents() {
+    return this.apiCacheRequest(REST_URLS.getEvents);
+  }
+
+  getEventDetails(slug: any) {
+    return this.apiCacheRequest(
+      REST_URLS.getEventDetails.replace("{slug}", slug)
+    );
+  }
+
 }

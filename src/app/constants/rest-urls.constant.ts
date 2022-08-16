@@ -3,6 +3,8 @@ export const REST_URLS = {
     getBlogs:    "/api/blogs?populate=*",
     // getBlogDetails: "api/blogs/{id}?populate=*"
     getBlogDetails: "/api/blogs?populate=*&filters[slug][$eq]={slug}",
-    getProfile: "/api/profile?populate=*"
+    getProfile: "/api/profile?populate=*",
+    getEvents: "/api/events?populate=*",
+    getEventDetails: "/api/events?populate=*&filters[slug][$eq]={slug}",
 
 }

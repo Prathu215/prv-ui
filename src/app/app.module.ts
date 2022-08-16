@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './services/app.interceptor';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { EventsComponent } from './components/events/events.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     BlogComponent,
     ContactComponent,
     BlogDetailsComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
