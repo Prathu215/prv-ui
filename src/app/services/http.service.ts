@@ -50,4 +50,16 @@ export class HttpAppService {
     );
   }
 
+
+  getMovies() {
+    return this.apiCacheRequest(REST_URLS.getMovies);
+  }
+
+  getMovieDetails(slug: any) {
+    return this.apiCacheRequest(
+      REST_URLS.getMovieDetails.replace("{slug}", slug)
+    );
+  }
+
+
 }

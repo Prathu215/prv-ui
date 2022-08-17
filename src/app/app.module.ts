@@ -16,6 +16,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppInterceptor } from './services/app.interceptor';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { EventsComponent } from './components/events/events.component';
+import { MoviesComponent } from './components/movies/movies.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { YouTubePlayerModule } from "@angular/youtube-player";
+
+// Import the library
+import { CarouselModule } from 'ngx-owl-carousel-o';
+// Needs to import the BrowserAnimationsModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +38,9 @@ import { EventsComponent } from './components/events/events.component';
     ContactComponent,
     BlogDetailsComponent,
     SpinnerComponent,
-    EventsComponent
+    EventsComponent,
+    MoviesComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,9 @@ import { EventsComponent } from './components/events/events.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    YouTubePlayerModule,
+    BrowserAnimationsModule,
+    CarouselModule,
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,
