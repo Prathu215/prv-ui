@@ -33,7 +33,7 @@
                 <ng-container *ngFor="let item of sortCommentByDate(movieDetails?.attributes?.comments?.data)">
 
 
-                  <div class="card-body p-4">
+                  <div class="card-body p-4" *ngIf="item.attributes.status=='Approved'">
 
                     <div class="d-flex flex-start">
                       <img class="rounded-circle shadow-1-strong me-3"

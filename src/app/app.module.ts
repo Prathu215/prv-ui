@@ -24,6 +24,7 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
 import { CarouselModule } from 'ngx-owl-carousel-o';
 // Needs to import the BrowserAnimationsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VerticalSliderComponent } from './components/vertical-slider/vertical-slider.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SpinnerComponent,
     EventsComponent,
     MoviesComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    VerticalSliderComponent
   ],
   imports: [
     BrowserModule,

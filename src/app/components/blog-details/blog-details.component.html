@@ -13,7 +13,7 @@
               </div>
               <div>
                 <h4 class="mb-3">{{blogDetails?.attributes?.title}}</h4>
-               <div>{{blogDetails?.attributes?.description}}</div>
+               <div [innerHtml]="blogDetails?.attributes?.description"></div>
               </div>
             </div>
           </div>

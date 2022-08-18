@@ -1,0 +1,6 @@
+.item {
+    transform: rotate(-90deg);
+}
+.vertical .owl-carousel{
+     transform: rotate(90deg);
+}

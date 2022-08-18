@@ -1199,6 +1199,9 @@ transition: all 500ms ease;
     border-radius: 4px;
     cursor:not-allowed;
 }
+.vertical .owl-carousel{
+  transform: rotate(90deg);
+}
 
 
 
