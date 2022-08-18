@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "comp": "ng g c components/vertical-slider"
+    "comp": "ng g c components/star-rating"
   },
   "private": true,
   "dependencies": {

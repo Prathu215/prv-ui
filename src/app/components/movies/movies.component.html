@@ -41,6 +41,7 @@
                       <span itemprop="name">{{
                         item?.attributes?.location
                       }}</span>
+                     <app-star-rating [rating]="item?.attributes?.star_rating"></app-star-rating>
                     </span>
 
                     <span class="category-name" title="Category: Technology">
@@ -59,7 +60,7 @@
   
                     <div class="article-introtext">
                       <!-- {{ item.attributes?.review_description }} -->
-                      {{trimDescription(item.attributes.review_description)}}
+                      {{trimDescription(item.attributes.short_description)}}
   
                       <div class="readmore">
                         <a [routerLink]="['/movie/', item.attributes.slug]">

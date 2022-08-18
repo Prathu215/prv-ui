@@ -25,6 +25,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 // Needs to import the BrowserAnimationsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VerticalSliderComponent } from './components/vertical-slider/vertical-slider.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { VerticalSliderComponent } from './components/vertical-slider/vertical-s
     EventsComponent,
     MoviesComponent,
     MovieDetailsComponent,
-    VerticalSliderComponent
+    VerticalSliderComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

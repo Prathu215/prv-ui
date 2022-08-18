@@ -22,7 +22,8 @@
                   [height]="450" [width]="1000" [startSeconds]="4" [endSeconds]="8">
                 </youtube-player>
                 <h4 class="mb-3 mt-4">{{ movieDetails?.attributes?.title }}</h4>
-                <div>{{ movieDetails?.attributes?.review_description }}</div>
+                <p><app-star-rating [rating]="movieDetails?.attributes?.star_rating"></app-star-rating></p>
+                <div [innerHtml]="movieDetails?.attributes?.review_description "></div>
               </div>
             </div>
 
