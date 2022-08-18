@@ -58,7 +58,8 @@
                     </div>
   
                     <div class="article-introtext">
-                      {{ item.attributes?.review_description }}
+                      <!-- {{ item.attributes?.review_description }} -->
+                      {{trimDescription(item.attributes.review_description)}}
   
                       <div class="readmore">
                         <a [routerLink]="['/movie/', item.attributes.slug]">

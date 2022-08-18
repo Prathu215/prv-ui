@@ -19,4 +19,7 @@ export class BlogComponent implements OnInit {
       console.log(response);
     });
   }
+  trimDescription(desc: string) {
+    return desc.substring(0, 100) + "...";
+  }
 }

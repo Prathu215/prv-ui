@@ -19,5 +19,8 @@ public movieList : any;
       console.log(response);
     });
   }
+  trimDescription(desc: string) {
+    return desc.substring(0, 100) + "...";
+  }
 
 }

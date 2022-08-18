@@ -1,77 +1,34 @@
 <main id="main">
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-title">
-          <h2>Blogs Post</h2>
-        </div>
-        <div class="blog">
-          <div class="article-list">
-            <div class="row row-1 cols-3" *ngIf="eventList">
-              <div class="col-lg-6" *ngFor="let item of eventList">
-                <div
-                  class="article"
-                  itemprop="blogPost"
-                  itemscope=""
-                  itemtype="https://schema.org/BlogPosting"
-                >
-                  <div class="blog-one__img">
-                    <div class="article-intro-image float-left">
-                      <a [routerLink]="['/blogs/', item.attributes.slug]"
-                        ><img
-                          src="{{ item.attributes.event_image.data.attributes.url }}"
-                          alt=""
-                      /></a>
-                    </div>
-  
-                    <a [routerLink]="['/blogs/{{item.attributes.slug}}']">
-                      <span class="blog-one__plus"></span>
-                    </a>
-                  </div>
-  
-                  <div class="article-body">
-                    <div class="article-info">
-                      <span class="published" title="Published: 26 March 2022"
-                        ><i class="far fa-clock"></i>
-                        <time datetime="2022-03-26T03:27:42+00:00">
-                          {{ item.attributes.event_date | date }}
-                        </time>
-                      </span>
-                      <span class="createdby" title="Written by: Windstripe"
-                      ><i class="far fa-user-circle"></i>
-                      <span itemprop="name">{{
-                        item?.attributes?.location
-                      }}</span>
-                    </span>
-
-                    <span class="category-name" title="Category: Technology">
-                      {{isUpcomingEvent(item)}}
-                    </span>
-                    </div>
-  
-                    <div class="article-header">
-                      <h4>
-                        <a [routerLink]="['/blogs/{{item.attributes.slug}}']">
-                          {{ item.attributes.name }}
-                        </a>
-                      </h4>
-                    </div>
-  
-                    <div class="article-introtext">
-                      {{ item.attributes?.description }}
-  
-                      <div class="readmore">
-                        <a [routerLink]="['/blogs/{{item.attributes.slug}}']">
-                          Learn more
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Events</h2>
+      </div>
+      <div class="blog">
+        <div class="article-list">
+          <div class="row row-1 cols-3" *ngIf="eventList">
+            <div class="col-lg-12">
+              <div class="row g-0 article-content position-relative mb-3"  *ngFor="let item of eventList">
+                <div class="col-md-6 mb-md-0 p-md-4">
+                  <img  src="{{ item.attributes?.event_image?.data.attributes.url }}" class="w-100" alt="...">
+                  <div class="event-status">{{isUpcomingEvent(item)}}</div>
+                </div>
+                <div class="col-md-6 p-4 ps-md-0">
+                  <h3 class="mb-3 text-brand"> {{ item.attributes.name }}</h3>
+                  <p class="small">
+                    <i class="bi bi-geo-alt text-brand me-2"></i>{{ item.attributes.location }}
+                    <i class=" ms-5 me-2 bi bi-calendar-check-fill text-brand"></i>{{ item.attributes.event_date | date}} -{{ item.attributes.event_expire | date}}
+                  </p>
+                  <p>
+                    {{trimDescription(item.attributes?.description)}}
+                  </p>
+                  <a href="#">Go somewhere</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-  
+    </div>
+  </section>
+</main>

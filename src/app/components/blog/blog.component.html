@@ -17,7 +17,7 @@
                 <div class="blog-one__img">
                   <div class="article-intro-image float-left">
                     <a [routerLink]="['/blogs/', item.attributes.slug]"
-                      ><img
+                      ><img class="img-fluid"
                         src="{{ item.attributes.image.data.attributes.url }}"
                         alt=""
                     /></a>
@@ -51,17 +51,19 @@
 
                   <div class="article-header">
                     <h4>
-                      <a [routerLink]="['/blogs/{{item.attributes.slug}}']">
+                      <a [routerLink]="['/blogs/', item.attributes.slug]">
                         {{ item.attributes.title }}
                       </a>
                     </h4>
                   </div>
 
                   <div class="article-introtext">
-                    {{ item.attributes.description }}
+
+                    {{trimDescription(item.attributes.description)}}
+                    <!-- {{ item.attributes.description }} -->
 
                     <div class="readmore">
-                      <a [routerLink]="['/blogs/{{item.attributes.slug}}']">
+                      <a [routerLink]="['/blogs/', item.attributes.slug]">
                         Learn more
                       </a>
                     </div>

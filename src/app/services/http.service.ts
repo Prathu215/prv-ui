@@ -55,11 +55,16 @@ export class HttpAppService {
     return this.apiCacheRequest(REST_URLS.getMovies);
   }
 
-  getMovieDetails(slug: any) {
-    return this.apiCacheRequest(
-      REST_URLS.getMovieDetails.replace("{slug}", slug)
-    );
+  getMovieDetails(slug: any, cache: boolean) {
+    if (cache) {
+      return this.apiCacheRequest(
+        REST_URLS.getMovieDetails.replace("{slug}", slug)
+      );
+    }
+    return this.http.get(REST_URLS.getMovieDetails.replace("{slug}", slug))
   }
 
-
+  addMovieComment(body) {
+    return this.http.post(REST_URLS.comments, body)
+  }
 }

@@ -7,6 +7,7 @@ export const REST_URLS = {
     getEvents: "/api/events?populate=*",
     getEventDetails: "/api/events?populate=*&filters[slug][$eq]={slug}",
     getMovies: "/api/movies?populate=*",
-    getMovieDetails:"/api/movies?populate=*&filters[slug][$eq]={slug}"
+    getMovieDetails:"/api/movies?populate=*&filters[slug][$eq]={slug}",
+    comments:"/api/comments"
 
 }
