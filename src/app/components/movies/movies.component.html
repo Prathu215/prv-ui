@@ -1,12 +1,133 @@
 <main id="main">
-    <section id="about" class="about">
+    <section id="about" class="about contact">
       <div class="container">
         <div class="section-title">
           <h2>Movies</h2>
         </div>
+        
         <div class="blog">
           <div class="article-list">
             <div class="row row-1 cols-3" *ngIf="movieList">
+
+          
+
+              <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
+                <form
+                  [formGroup]="movieFilter"
+                  (ngSubmit)="filter(movieFilter)"
+                  role="form"
+                  class="php-email-form"
+                >
+                  <div class="row">
+                      <div class="form-group col-md-4">
+                          <label for="name">Title</label>
+                          <input
+                            type="text"
+                            name="title"
+                            class="form-control"
+                            id="title"
+                            required=""
+                            formControlName="title"
+                            [ngClass]="{'is-invalid': form?.['title']?.touched && form?.['title']?.invalid}"
+                          />
+                          <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['title']?.touched && form?.['title']?.invalid">
+                              Please choose a username.
+                            </div>
+                        </div>
+                   
+                    <div class="form-group col-md-4">
+                      <label for="name">Rating</label>
+                      <select formControlName="rating" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option disabled [ngValue]="null">Select State</option>
+                        <option *ngFor="let item of ratingArray" [ngValue]="item">
+                          {{item}}</option>
+                      </select>
+                      <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['rating']?.touched && form?.['rating']?.invalid">
+                          Please enter valid Email.
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="name">Type</label>
+                      <select    formControlName="type" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option disabled [ngValue]="null">Select State</option>
+                        <option *ngFor="let item of typeArray" [ngValue]="item">
+                          {{item}}</option>
+                      </select>
+                      <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['rating']?.touched && form?.['rating']?.invalid">
+                          Please enter valid Email.
+                        </div>
+                    </div>
+
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="name">Release Date</label>
+                    <input
+                      type="calendar"
+                      class="form-control"
+                      name="release_date"
+                      id="release_date"
+                      required=""
+                      formControlName="release_date"
+                      [ngClass]="{'is-invalid': form?.['release_date']?.touched && form?.['release_date']?.invalid}"
+                    />
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['release_date']?.touched && form?.['release_date']?.invalid">
+                      Please enter your subject.
+                    </div>
+                  </div>
+
+
+                  <div class="form-group col-md-4">
+                    <label for="name"> star_rating </label>
+
+                    <select formControlName="star_rating" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                      <option disabled [ngValue]="null">Select Star rating</option>
+                      <option value="0.0">
+                      👎
+                     </option>
+                      <option value="0.5">½</option>
+                      <option value="1.0">★</option>
+                      <option value="1.5">★½</option>
+                      <option value="2.0">★★</option>
+                      <option value="2.5">★★½</option>
+                      <option value="3.0">★★★</option>
+                      <option value="3.5">★★★½</option>
+                      <option selected="selected" value="4.0">★★★★</option>
+                      <option selected="selected" value="4.5">★★★★½</option>
+                      <option selected="selected" value="5.0">★★★★★</option>
+                    </select>
+
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.[' star_rating']?.touched && form?.[' star_rating']?.invalid">
+                      Please enter your subject.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="name"> Star Rating</label
+                    ><textarea
+                      class="form-control"
+                      name="message"
+                      rows="10"
+                      required=""
+                      formControlName="message"
+                      [ngClass]="{'is-invalid': form?.['message']?.touched && form?.['message']?.invalid}"
+                    ></textarea>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="form?.['message']?.touched && form?.['message']?.invalid">
+                      Please enter your message.
+                    </div>
+                  </div>
+                  <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">
+                      Your message has been sent. Thank you!
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" [disabled]="movieFilter.invalid">Send Message</button>
+                  </div>
+                </form>
+              </div>
+
               <div class="col-lg-6" *ngFor="let item of movieList">
                 <div
                   class="article"
