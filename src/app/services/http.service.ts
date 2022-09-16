@@ -54,6 +54,9 @@ export class HttpAppService {
   getMovies() {
     return this.apiCacheRequest(REST_URLS.getMovies);
   }
+  getMoviesByFilter(query) {
+    return this.apiCacheRequest(REST_URLS.getMovies+'&' +query);
+  }
 
   getMovieDetails(slug: any, cache: boolean) {
     if (cache) {

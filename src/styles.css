@@ -847,12 +847,12 @@ body {
   .contact .php-email-form label {
     padding-bottom: 8px;
   }
-  .contact .php-email-form input, .contact .php-email-form textarea {
+  .contact .php-email-form input, .contact .php-email-form textarea, .contact select {
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
   }
-  .contact .php-email-form input {
+  .contact .php-email-form input, .contact select  {
     height: 44px;
   }
   .contact .php-email-form textarea {
