@@ -1,0 +1,37 @@
+<main id="main">
+    <section id="about" class="about contact">
+      <div class="container">
+        <div class="section-title">
+          <h4>User Comments</h4><span style="float:right"><button style="color:red; margin-top: -78%;" class="btn btn-link" (click)="logout()">Logout</button></span>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table  *ngIf="commentList.length>0" class="table table-bordered border-primary">
+                    <thead>
+                        <tr>
+                          <th scope="col">Id</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of commentList">
+                          <th scope="row">{{item.id}}</th>
+                          <td>{{item.attributes.name}}</td>
+                          <td>{{item.attributes.description}}</td>
+                          <td>{{item.attributes.status?item.attributes.status:'Pending'}}</td>
+                          <td>
+                            <button type="button" class="btn btn-link btn-sm" (click)="updateStatus(item.id,'Approved')" *ngIf="item.attributes.status!=='Approved'">Approve</button>
+                            <button type="button" class="btn btn-link btn-sm"(click)="updateStatus(item.id,'Rejected')" *ngIf="item.attributes.status!=='Rejected'">Reject</button>
+                          </td>
+                        </tr>
+                      </tbody>
+
+                  </table>
+            </div>
+        </div>
+      </div>
+    </section>
+</main>

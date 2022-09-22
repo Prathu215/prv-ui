@@ -70,4 +70,22 @@ export class HttpAppService {
   addMovieComment(body) {
     return this.http.post(REST_URLS.comments, body)
   }
+
+  getCommentList() {
+
+      return this.apiCacheRequest(
+        REST_URLS.commentList 
+      );
+
+
+  }
+
+  updateCommentStatus(id,body){
+    return this.http.put(REST_URLS.comments+'/'+id, body)
+  }
+
+  loginUser(body){
+return this.http.post(REST_URLS.loginURL, body);
+  }
+
 }

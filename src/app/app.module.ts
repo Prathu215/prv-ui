@@ -26,6 +26,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VerticalSliderComponent } from './components/vertical-slider/vertical-slider.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     MoviesComponent,
     MovieDetailsComponent,
     VerticalSliderComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    AdminCommentsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

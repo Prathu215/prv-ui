@@ -8,6 +8,7 @@ export const REST_URLS = {
     getEventDetails: "/api/events?populate=*&filters[slug][$eq]={slug}",
     getMovies: "/api/movies?populate=*",
     getMovieDetails:"/api/movies?populate=*&filters[slug][$eq]={slug}",
-    comments:"/api/comments"
-
+    comments:"/api/comments",
+    commentList:"/api/comments?populate=*",
+    loginURL:"/api/auth/local"
 }
