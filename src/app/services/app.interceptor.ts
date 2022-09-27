@@ -4,6 +4,7 @@ import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
+  HttpHeaders,
 } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { HttpAppService } from "./http.service";
@@ -22,9 +23,24 @@ export class AppInterceptor implements HttpInterceptor {
     });
 this.httpAppService.showSpinner.next(true);
     console.log(req);
+  
 
+const tokenUrls =["/api/comments"];
+const contains = tokenUrls.some(element => req.url.includes(element));
+    if( contains && req.method=="PUT"){
+      const getToken = JSON.parse(sessionStorage.getItem('isUserLogin'));
+      req = req.clone({
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Authorization': 'Bearer '+getToken?.jwt 
+        })
+      });
+    }
+   
     return next.handle(req).pipe(finalize(( )=>{
       this.httpAppService.showSpinner.next(false);
     }));
   }
 }
+
+

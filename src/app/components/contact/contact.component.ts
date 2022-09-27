@@ -9,10 +9,20 @@ import { HttpAppService } from "src/app/services/http.service";
 })
 export class ContactComponent implements OnInit {
   public contactModel: FormGroup;
+  categoryArray = [
+    "Events",
+    "Blogs",
+    "Movie",
+    "Other"
+  ];
+
+  userInfo:any;
   constructor(private fb: FormBuilder,
     public httpAppService: HttpAppService) {}
 
   ngOnInit(): void {
+    this.userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+
     this.contactModel = this.fb.group({
       name: [
         "",
@@ -33,10 +43,13 @@ export class ContactComponent implements OnInit {
           ),
         ],
       ],
+      category:[null,[Validators.required]],
       subject: ["", [Validators.required]],
       message: ["", [Validators.required]],
       phoneNumber: [""],
     });
+
+    
   }
   get form() { 
     return this.contactModel.controls; 
@@ -48,6 +61,7 @@ export class ContactComponent implements OnInit {
     const body = {"data":form.value}
     this.httpAppService.contactMe(body).subscribe((response)=>{
       console.log(response);
+      this.contactModel.reset();
     },(error)=>{
       console.log(error);
     })

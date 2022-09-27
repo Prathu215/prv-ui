@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { json } from "express";
 
 import { HttpAppService } from "src/app/services/http.service";
 
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
     console.log(form.value);
     this.httpAppService.loginUser(form.value).subscribe((res) => {
       console.log(res);
-      sessionStorage.setItem("isUserLogin", "true");
+      sessionStorage.setItem("isUserLogin", JSON.stringify(res));
       this.router.navigate(["comments"]);
     });
   }

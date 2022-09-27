@@ -17,7 +17,7 @@ export class AuthGuardService implements CanActivate {
  
         //check some condition  
         const isUserSessionLogin = JSON.parse(sessionStorage.getItem('isUserLogin'));
-        if(isUserSessionLogin){
+        if(isUserSessionLogin.jwt){
             return true;
 
         } 

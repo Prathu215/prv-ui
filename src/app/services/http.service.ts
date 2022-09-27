@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map,tap, Observable, of, Subject } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -72,16 +72,14 @@ export class HttpAppService {
   }
 
   getCommentList() {
-
-      return this.apiCacheRequest(
-        REST_URLS.commentList 
-      );
-
-
+    return this.http.get(REST_URLS.commentList);
+    
   }
 
   updateCommentStatus(id,body){
-    return this.http.put(REST_URLS.comments+'/'+id, body)
+  
+    return this.http.put(REST_URLS.comments+'/'+id, body);
+    
   }
 
   loginUser(body){

@@ -16,7 +16,10 @@
             <div class="address">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <p>{{this.userInfo?.data?.attributes?.addressinfo?.address}},
+                {{this.userInfo?.data?.attributes?.addressinfo?.city}},
+                {{this.userInfo?.data?.attributes?.addressinfo?.country}}
+              </p>
             </div>
             <div class="email">
               <i class="bi bi-envelope"></i>
@@ -90,6 +93,15 @@
                   </div>
               </div>
             </div>
+            <div class="form-group">
+              <label for="name">Query Category</label>
+              <select formControlName="category" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option disabled [ngValue]="null">Select Category</option>
+                <option *ngFor="let item of categoryArray" [ngValue]="item">
+                  {{item}}</option>
+              </select>
+            </div>
+
             <div class="form-group">
               <label for="name">Subject</label>
               <input

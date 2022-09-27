@@ -28,6 +28,7 @@ import { VerticalSliderComponent } from './components/vertical-slider/vertical-s
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
 import { LoginComponent } from './components/login/login.component';
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { LoginComponent } from './components/login/login.component';
     VerticalSliderComponent,
     StarRatingComponent,
     AdminCommentsComponent,
-    LoginComponent
+    LoginComponent,
+    RestaurantComponent
   ],
   imports: [
     BrowserModule,

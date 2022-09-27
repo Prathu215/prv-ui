@@ -16,7 +16,7 @@ commentList : any=[];
     this.getComments();
   }
 getComments(){
-this.httpService.getCommentList().subscribe((res) =>{
+this.httpService.getCommentList().subscribe((res:any) =>{
 this.commentList =res.data;
 console.log(res);
 });
@@ -30,7 +30,7 @@ updateStatus(id,status:string){
     }
   };
   this.httpService.updateCommentStatus(id,body).subscribe((res) =>{
- 
+    this.getComments();
     console.log(res);
     });
 }
