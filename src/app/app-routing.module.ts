@@ -10,6 +10,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from './components/login/login.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { AuthGuardService} from './services/auth.guard';
 
 const routes: Routes = [
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'movie/:slug', component: MovieDetailsComponent },
   { path: 'comments', component: AdminCommentsComponent, canActivate:[AuthGuardService]},
   { path: 'login', component: LoginComponent},
+  { path: 'foods', component: RestaurantComponent},
+  { path: 'foods/:slug', component: RestaurantDetailComponent },
   
 ];
 

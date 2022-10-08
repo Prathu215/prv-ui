@@ -40,4 +40,14 @@ logout(){
   this.router.navigate(["home"]);
 }
 
+getCommentType(item){
+  if(item.attributes.movie.data){
+  return 'movie'
+  }else if(item.attributes.food.data){
+    return 'food'
+  }else{
+    return 'NA'
+  }
+    }
+
 }

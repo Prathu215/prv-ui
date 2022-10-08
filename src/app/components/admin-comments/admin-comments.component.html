@@ -12,6 +12,7 @@
                           <th scope="col">Id</th>
                           <th scope="col">Name</th>
                           <th scope="col">Description</th>
+                          <th scope="col">Comment Type</th>
                           <th scope="col">Status</th>
                           <th scope="col">Action</th>
                         </tr>
@@ -21,6 +22,7 @@
                           <th scope="row">{{item.id}}</th>
                           <td>{{item.attributes.name}}</td>
                           <td>{{item.attributes.description}}</td>
+                          <td>{{getCommentType(item)}}</td>
                           <td>{{item.attributes.status?item.attributes.status:'Pending'}}</td>
                           <td>
                             <button type="button" class="btn btn-link btn-sm" (click)="updateStatus(item.id,'Approved')" *ngIf="item.attributes.status!=='Approved'">Approve</button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpAppService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-restaurant',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restaurant.component.css']
 })
 export class RestaurantComponent implements OnInit {
+public restaurantList : any;
+  
 
-  constructor() { }
+ 
+  constructor(private httpAppService: HttpAppService) {}
 
   ngOnInit(): void {
+    this.getFoodsList();
   }
 
+  getFoodsList() {
+    this.httpAppService.getFoods().subscribe((response: any) => {
+      this.restaurantList = response.data;
+      console.log(response);
+    });
+  }
+
+
+  trimDescription(desc: string) {
+    return desc.substring(0, 100) + "...";
+  }
+  
 }

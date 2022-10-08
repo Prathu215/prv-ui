@@ -1,1 +1,89 @@
-<p>restaurant works!</p>
+<main id="main">
+    <section id="about" class="about contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Best Foods</h2>
+        </div>
+        
+        <div class="blog">
+          <div class="article-list">
+            <div class="row row-1 cols-3" *ngIf="restaurantList">
+
+          
+
+             
+             <div *ngIf="restaurantList && restaurantList.length==0">
+              <h2 class="text-center">Sorry no movie found</h2>
+             </div>
+              <div class="col-lg-6" *ngFor="let item of restaurantList">
+                <div
+                  class="article"
+                  itemprop="blogPost"
+                  itemscope=""
+                  itemtype="https://schema.org/BlogPosting"
+                >
+                  <div class="blog-one__img">
+                    <div class="article-intro-image float-left">
+                      <a [routerLink]="['/foods/', item.attributes.slug]"
+                        ><img
+                        class="img-fluid"
+                          src="{{ item.attributes.restaurant_image.data.attributes.url }}"
+                          alt=""
+                      /></a>
+                    </div>
+  
+                    <a [routerLink]="['/foods/{{item.attributes.slug}}']">
+                      <span class="blog-one__plus"></span>
+                    </a>
+                  </div>
+  
+                  <div class="article-body">
+                    <div class="article-info">
+                      <!-- <span class="published" title="Published: 26 March 2022"
+                        ><i class="far fa-clock"></i>
+                        <time datetime="2022-03-26T03:27:42+00:00">
+                          {{ item.attributes.release_date | date }}
+                        </time>
+                      </span>
+                      <span class="createdby" title="Written by: Windstripe"
+                      ><i class="far fa-user-circle"></i>
+                      <span itemprop="name">{{
+                        item?.attributes?.location
+                      }}</span>
+                
+                    </span> -->
+                    <app-star-rating [rating]="item?.attributes?.restaurant_rating"></app-star-rating>
+                    <span class="category-name" title="Category: Technology">
+                      
+                      {{ item?.attributes?.restaurant_type }}
+                    </span>
+                    </div>
+  
+                    <div class="article-header">
+                      <h4>
+                        <a [routerLink]="['/foods/', item.attributes.slug]">
+                          {{ item.attributes.restaurant_name }}
+                        </a>
+                      </h4>
+                    </div>
+  
+                    <div class="article-introtext">
+                      <!-- {{ item.attributes?.review_description }} -->
+                      {{trimDescription(item.attributes.restaurant_description)}}
+  
+                      <div class="readmore">
+                        <a [routerLink]="['/foods/', item.attributes.slug]">
+                          Learn more
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  

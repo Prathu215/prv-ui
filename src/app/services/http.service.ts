@@ -86,4 +86,17 @@ export class HttpAppService {
 return this.http.post(REST_URLS.loginURL, body);
   }
 
+  getFoods(){
+    return this.apiCacheRequest(REST_URLS.getFoods);
+  }
+
+  getFoodsDetails(slug: any, cache: boolean) {
+    if (cache) {
+      return this.apiCacheRequest(
+        REST_URLS.getFoodsDetails.replace("{slug}", slug)
+      );
+    }
+    return this.http.get(REST_URLS.getFoodsDetails.replace("{slug}", slug))
+  }
+
 }

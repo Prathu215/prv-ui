@@ -10,5 +10,7 @@ export const REST_URLS = {
     getMovieDetails:"/api/movies?populate=*&filters[slug][$eq]={slug}",
     comments:"/api/comments",
     commentList:"/api/comments?populate=*",
-    loginURL:"/api/auth/local"
+    loginURL:"/api/auth/local",
+    getFoods: "/api/foods?populate=*",
+    getFoodsDetails:"/api/foods?populate=*&filters[slug][$eq]={slug}",
 }
