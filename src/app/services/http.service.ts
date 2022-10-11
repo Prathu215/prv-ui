@@ -98,5 +98,8 @@ return this.http.post(REST_URLS.loginURL, body);
     }
     return this.http.get(REST_URLS.getFoodsDetails.replace("{slug}", slug))
   }
+  removeComment(id) {
+    return this.http.delete(REST_URLS.comments + "/" + id);
+  }
 
 }

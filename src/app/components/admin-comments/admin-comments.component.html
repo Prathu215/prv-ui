@@ -5,7 +5,31 @@
           <h4>User Comments</h4><span style="float:right"><button style="color:red; margin-top: -78%;" class="btn btn-link" (click)="logout()">Logout</button></span>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 my-3">
+              <form [formGroup]="requestTrackerForm" (ngSubmit)="submit()">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="searchText" id="inlineRadio1" value="ALL" formControlName="searchText" (change)="changeSearchText($event)">
+                <label class="form-check-label" for="inlineRadio1">All</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="searchText" id="inlineRadio2" value="MOVIE" formControlName="searchText" (change)="changeSearchText($event)">
+                <label class="form-check-label" for="inlineRadio2">Movie</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="searchText" id="inlineRadio2" value="FOOD" formControlName="searchText" (change)="changeSearchText($event)">
+                <label class="form-check-label" for="inlineRadio2">Food</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="searchText" id="inlineRadio2" value="PENDING" formControlName="searchText" (change)="changeSearchText($event)">
+                <label class="form-check-label" for="inlineRadio2">Pending Status</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="searchText" id="inlineRadio2" value="APPROVED" formControlName="searchText" (change)="changeSearchText($event)">
+                <label class="form-check-label" for="inlineRadio2">Approved</label>
+              </div>
+              </form>
+            </div>
+              <div class="col-12">
                 <table  *ngIf="commentList.length>0" class="table table-bordered border-primary">
                     <thead>
                         <tr>
@@ -18,7 +42,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let item of commentList">
+                        <tr [ngClass]="{'d-none':(commentType && getCommentType(item)!=commentType)}" *ngFor="let item of commentList">
                           <th scope="row">{{item.id}}</th>
                           <td>{{item.attributes.name}}</td>
                           <td>{{item.attributes.description}}</td>
@@ -27,6 +51,7 @@
                           <td>
                             <button type="button" class="btn btn-link btn-sm" (click)="updateStatus(item.id,'Approved')" *ngIf="item.attributes.status!=='Approved'">Approve</button>
                             <button type="button" class="btn btn-link btn-sm"(click)="updateStatus(item.id,'Rejected')" *ngIf="item.attributes.status!=='Rejected'">Reject</button>
+                            <button type="button" class="btn btn-link btn-sm"(click)="delete(item.id)">Delete</button>
                           </td>
                         </tr>
                       </tbody>

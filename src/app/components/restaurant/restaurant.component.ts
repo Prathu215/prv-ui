@@ -8,7 +8,7 @@ import { HttpAppService } from 'src/app/services/http.service';
 })
 export class RestaurantComponent implements OnInit {
 public restaurantList : any;
-  
+isUserLogin = JSON.parse(sessionStorage.getItem("isUserLogin"));
 
  
   constructor(private httpAppService: HttpAppService) {}

@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./movies.component.css"],
 })
 export class MoviesComponent implements OnInit {
-  public movieList: any=[];
+  public movieList: any = [];
   public movieFilter: FormGroup;
   ratingArray = ["Blockbuster", "Hit", "Average", "Below Average", "Flop"];
 
@@ -64,6 +64,8 @@ export class MoviesComponent implements OnInit {
     },
   ];
 
+  isUserLogin = JSON.parse(sessionStorage.getItem("isUserLogin"));
+
   constructor(
     private fb: FormBuilder,
     private httpAppService: HttpAppService
@@ -111,9 +113,9 @@ export class MoviesComponent implements OnInit {
         let q = filter
           .replace("{key}", key)
           .replace("{value}", this.movieFilter.value[key]);
-          if(key=='title'){
-            q=q.replace('$eq','$containsi');
-          }
+        if (key == "title") {
+          q = q.replace("$eq", "$containsi");
+        }
         query.push(q);
       }
     }
