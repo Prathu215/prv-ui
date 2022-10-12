@@ -30,6 +30,7 @@ import { AdminCommentsComponent } from './components/admin-comments/admin-commen
 import { LoginComponent } from './components/login/login.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
+import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { RestaurantDetailComponent } from './components/restaurant-detail/restau
     AdminCommentsComponent,
     LoginComponent,
     RestaurantComponent,
-    RestaurantDetailComponent
+    RestaurantDetailComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,

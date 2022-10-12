@@ -102,4 +102,8 @@ return this.http.post(REST_URLS.loginURL, body);
     return this.http.delete(REST_URLS.comments + "/" + id);
   }
 
+  getRestaurantByFilter(query) {
+    return this.apiCacheRequest(REST_URLS.getFoods+'&' +query);
+  }
+
 }

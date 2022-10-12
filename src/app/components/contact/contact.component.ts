@@ -9,6 +9,7 @@ import { HttpAppService } from "src/app/services/http.service";
 })
 export class ContactComponent implements OnInit {
   public contactModel: FormGroup;
+  isUserLogin = JSON.parse(sessionStorage.getItem("isUserLogin"));
   categoryArray = [
     "Events",
     "Blogs",

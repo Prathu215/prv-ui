@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminCommentsComponent } from './components/admin-comments/admin-comments.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ContentComponent } from './components/content/content.component';
 import { EventsComponent } from './components/events/events.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'foods', component: RestaurantComponent},
   { path: 'foods/:slug', component: RestaurantDetailComponent },
+  { path: 'contact-details', component: ContactDetailsComponent, canActivate:[AuthGuardService]},
   
 ];
 
