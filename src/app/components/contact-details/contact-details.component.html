@@ -1,1 +1,75 @@
-<p>contact-details works!</p>
+<main id="main" [ngClass]="{'modal-open': isModalOpen}">
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="card">
+                     <div class="card-body bg-primary text-white mailbox-widget pb-0">
+                        <h2 class="text-white pb-3">Your Mailbox</h2>
+                     </div>
+                     <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show" id="inbox" aria-labelledby="inbox-tab" role="tabpanel">
+                           <div>
+                              <div class="row p-4 no-gutters align-items-center">
+                                 <div class="col-sm-12 col-md-6">
+                                    <h3 *ngIf="getUnreadMessages>0" class="font-light mb-0"><i class="ti-email mr-2"></i>{{getUnreadMessages}} Unread emails</h3>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6">
+                                    <ul class="list-inline dl mb-0 float-left float-md-right">
+                                       <li class="list-inline-item text-info mr-3"> <a href="#"> <button class="btn btn-circle btn-success text-white" href="javascript:void(0)"> <i class="fa fa-plus"></i> </button> <span class="ml-2 font-normal text-dark">Compose</span> </a></li>
+                                       <li class="list-inline-item text-danger"> <a href="#"> <button class="btn btn-circle btn-danger text-white" href="javascript:void(0)"> <i class="fa fa-trash"></i> </button> <span class="ml-2 font-normal text-dark">Delete</span> </a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div class="table-responsive">
+                                 <table class="table email-table no-wrap table-hover v-middle mb-0 font-14">
+                                    <tbody>
+                                       <tr (click)="updateContactMessages(item)" *ngFor="let item of messageList"[ngClass]="{'table-primary': !item?.attributes?.isReaded}" >
+                                          <td class="pl-3">
+                                             <div class="custom-control custom-checkbox"> <input type="checkbox" class="custom-control-input" id="cst1"> <label class="custom-control-label" for="cst1">&nbsp;</label></div>
+                                          </td>
+                                          <td><i class="fa fa-star text-warning"></i></td>
+                                          <td> <span class="mb-0 text-muted">{{item?.attributes?.name?item?.attributes?.name:'Anonymous'}}</span></td>
+                                          <td> 
+                                             <span class="badge rounded-pill text-white font-medium bg-danger mx-2">{{item?.attributes?.category?item?.attributes?.category:'Others'}}</span> 
+                                             <span class="text-dark">{{item?.attributes?.subject}}</span></td>
+                                          <!-- <td><i class="fa fa-paperclip text-muted"></i></td> -->
+                                          <td class="text-muted">{{item?.attributes?.createdAt | date}}</td>
+                                         
+                                       </tr>
+                                   
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+<!-- Modal -->
+<div class="modal fade"  [ngClass]="{'show d-block': isModalOpen}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <button type="button" class="btn-close" (click)="closeModal()" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+               <p>{{modalContent?.createdAt | date}}</p>
+               <h4>{{modalContent?.subject}} | {{modalContent?.category?modalContent?.category:'Others'}}</h4>
+               <p>From : {{modalContent?.name?modalContent?.name:'Anonymous'}} &lt;{{modalContent?.email}}&gt; </p>
+              <p>Phone Number: {{modalContent?.phoneNumber}}</p>
+              <p>Message: {{modalContent?.message}}</p>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show" *ngIf="isModalOpen" ></div>
+    </section>
+</main>
+
+
+

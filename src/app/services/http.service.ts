@@ -105,5 +105,12 @@ return this.http.post(REST_URLS.loginURL, body);
   getRestaurantByFilter(query) {
     return this.apiCacheRequest(REST_URLS.getFoods+'&' +query);
   }
+  getContactMessages(){
+    return this.http.get(REST_URLS.contactMe+"?sort=createdAt:desc");
+  }
+  updateContactMessages(id,data){
+    return this.http.put(`${REST_URLS.contactMe}/${id}`, data);
+    
+  }
 
 }

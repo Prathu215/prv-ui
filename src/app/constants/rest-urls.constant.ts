@@ -1,5 +1,6 @@
 export const REST_URLS = {
     contactMe : "/api/contacts",
+    // getContactMessages : "/api/contacts?populate=*",
     getBlogs:    "/api/blogs?populate=*",
     // getBlogDetails: "api/blogs/{id}?populate=*"
     getBlogDetails: "/api/blogs?populate=*&filters[slug][$eq]={slug}",

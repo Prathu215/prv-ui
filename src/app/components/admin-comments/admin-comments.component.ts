@@ -56,9 +56,9 @@ export class AdminCommentsComponent implements OnInit {
   }
 
   getCommentType(item) {
-    if (item.attributes.movie.data) {
+    if (item?.attributes?.movie?.data) {
       return "MOVIE";
-    } else if (item.attributes.food.data) {
+    } else if (item?.attributes?.food?.data) {
       return "FOOD";
     } else {
       return "NA";
