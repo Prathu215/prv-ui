@@ -31,6 +31,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
+import { TestimonialComponent } from './components/testimonial/testimonial.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
     LoginComponent,
     RestaurantComponent,
     RestaurantDetailComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    TestimonialComponent
   ],
   imports: [
     BrowserModule,
