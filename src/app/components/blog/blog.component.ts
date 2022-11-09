@@ -12,6 +12,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBlogs();
+    this.getComments();
   }
   getBlogs() {
     this.httpAppService.getBlogs().subscribe((response: any) => {
@@ -22,4 +23,13 @@ export class BlogComponent implements OnInit {
   trimDescription(desc: string) {
     return desc.substring(0, 100) + "...";
   }
+  getComments() {
+    this.httpAppService.getCommentList().subscribe((res: any) => {
+     
+      console.log(res);
+      sessionStorage.setItem("comments", JSON.stringify(res.data));
+    });
+  }
+
+
 }

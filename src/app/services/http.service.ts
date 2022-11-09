@@ -11,6 +11,7 @@ export class HttpAppService {
 
   public responseCache = new Map();
   public showSpinner = new Subject();
+  public notifyUser = new Subject();
   constructor(public http: HttpClient) {}
 
   contactMe(body) {

@@ -19,7 +19,9 @@ export class HeaderComponent implements OnInit {
     } else {
       this.httpAppService.getProfile().subscribe((response) => {
         this.userInfo = response;
+      
         sessionStorage.setItem("userInfo", JSON.stringify(response));
+        this.httpAppService.notifyUser.next(true);
       });
     }
   }

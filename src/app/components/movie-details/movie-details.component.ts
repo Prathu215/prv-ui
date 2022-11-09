@@ -47,6 +47,7 @@ export class MovieDetailsComponent implements OnInit {
     }
     this.httpAppService.addMovieComment(body).subscribe((res) => {
       this.getMovieDetails(this.movieDetails.attributes.slug,false);
+      this.commentForm.reset();
     })
   }
 
