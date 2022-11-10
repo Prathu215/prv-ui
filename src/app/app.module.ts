@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,7 @@ import { RestaurantComponent } from './components/restaurant/restaurant.componen
 import { RestaurantDetailComponent } from './components/restaurant-detail/restaurant-detail.component';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
+import { AppConfigService } from './services/config.service';
 
 
 @NgModule({
@@ -68,7 +69,11 @@ import { TestimonialComponent } from './components/testimonial/testimonial.compo
     BrowserAnimationsModule,
     CarouselModule,
   ],
-  providers: [{
+  providers: [
+    AppConfigService,
+    { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load().toPromise(),
+    deps: [AppConfigService], multi: true },
+    {
     provide : HTTP_INTERCEPTORS,
     useClass : AppInterceptor,
     multi : true
