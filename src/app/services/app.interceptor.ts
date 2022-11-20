@@ -18,9 +18,15 @@ export class AppInterceptor implements HttpInterceptor {
 
   }
   intercept(req: HttpRequest<any>, next: HttpHandler) {
+    if(req.url.includes('/api/profile')){
+      req = req.clone({
+        url: 'https://www.beingvicky.com/api/profile.php',
+      });
+    }else{
     req = req.clone({
       url: environment.apiHost + req.url,
     });
+  }
 this.httpAppService.showSpinner.next(true);
     console.log(req);
   

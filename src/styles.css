@@ -76,6 +76,7 @@ body {
     padding: 0 15px;
     background: #040b14;
     overflow-y: auto;
+    left:-300px;
   }
   #header .profile img {
     margin: 15px auto;
@@ -116,9 +117,9 @@ body {
     text-decoration: none;
   }
   
-  #main {
-    margin-left: 300px;
-  }
+  /* #main {
+    //margin-left: 300px;
+  } */
   
   @media (max-width: 1199px) {
     #header {
@@ -1218,7 +1219,16 @@ transition: all 500ms ease;
     width: 100vw;
     z-index: 9999; */
 }
-
+@media only screen and (max-width: 600px) {
+  .wrapper{
+    height: 200px;
+  } 
+}
+@media only screen and (min-width: 600px) and (max-width: 780px){
+  .wrapper{
+    height: 480px;
+  } 
+  }
 owl-carousel-o {
   position: absolute;
   height: 100vh;
@@ -1297,4 +1307,82 @@ owl-carousel-o {
     letter-spacing: 0.1em;
     margin: 0;
  
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  height: 40px;
+  width: 40px;
+  transform: translate(-50%, -50%);
+}
+
+[class^=ball-] {
+  position: absolute;
+  display: block;
+  left: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  transition: all 0.5s;
+  animation: circleRotate 4s both infinite;
+  transform-origin: 0 250% 0;
+}
+
+@keyframes circleRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1440deg);
+  }
+}
+.ball-1 {
+  z-index: -1;
+  background-color: #2196F3;
+  animation-timing-function: cubic-bezier(0.5, 0.3, 0.9, 0.9);
+}
+
+.ball-2 {
+  z-index: -2;
+  background-color: #03A9F4;
+  animation-timing-function: cubic-bezier(0.5, 0.6, 0.9, 0.9);
+}
+
+.ball-3 {
+  z-index: -3;
+  background-color: #00BCD4;
+  animation-timing-function: cubic-bezier(0.5, 0.9, 0.9, 0.9);
+}
+
+.ball-4 {
+  z-index: -4;
+  background-color: #009688;
+  animation-timing-function: cubic-bezier(0.5, 1.2, 0.9, 0.9);
+}
+
+.ball-5 {
+  z-index: -5;
+  background-color: #4CAF50;
+  animation-timing-function: cubic-bezier(0.5, 1.5, 0.9, 0.9);
+}
+
+.ball-6 {
+  z-index: -6;
+  background-color: #8BC34A;
+  animation-timing-function: cubic-bezier(0.5, 1.8, 0.9, 0.9);
+}
+
+.ball-7 {
+  z-index: -7;
+  background-color: #CDDC39;
+  animation-timing-function: cubic-bezier(0.5, 2.1, 0.9, 0.9);
+}
+
+.ball-8 {
+  z-index: -8;
+  background-color: #FFEB3B;
+  animation-timing-function: cubic-bezier(0.5, 2.4, 0.9, 0.9);
 }
